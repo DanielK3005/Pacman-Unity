@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Pacman pacman;
     [SerializeField] private Transform pallets;
 
+    public int ghostMultiplier {get; private set; } = 1;
+
     public int Score { get; private set; }
     public int Lives { get; private set; }
 
@@ -68,8 +70,11 @@ public class GameManager : MonoBehaviour
 
     public void GhostEaten(Ghost ghost)
     {
+        int points = ghost.points * ghostMultiplier;
+
         ghost.gameObject.SetActive(false);
-        SetScore(Score + ghost.points);
+        SetScore(Score + points);
+        ghostMultiplier++;
     }
 
     public void PacmanEaten()
@@ -85,6 +90,44 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    public void PalletEaten(Pallet pallet)
+    {
+        pallet.gameObject.SetActive(false);
+
+        SetScore(Score + pallet.points);
+
+        if(!HasRemainingPallets())
+        {
+            pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound),3.0f);
+        }
+    }
+
+    public void PowerPalletEaten(PowerPallet powerPallet)
+    {
+        PalletEaten(powerPallet);
+        CancelInvoke();
+        Invoke(nameof(ResetGhostMultiplier), powerPallet.duration);
+    }
+
+    private bool HasRemainingPallets()
+    {
+        foreach(Transform pallet in pallets)
+        {
+            if(pallet.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void ResetGhostMultiplier()
+    {
+        ghostMultiplier = 1;
     }
 
     private void SetScore(int score)
