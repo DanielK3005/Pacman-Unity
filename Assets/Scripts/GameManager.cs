@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void NewGame()
+    public void NewGame()
     {
         SetScore(0);
         SetLives(3);
         NewRound();
     }
 
-    private void NewRound()
+    public void NewRound()
     {
         foreach(Transform pallet in pallets)
         {
@@ -45,16 +45,17 @@ public class GameManager : MonoBehaviour
         ResetState();
     }
 
-    private void ResetState()
+    public void ResetState()
     {
-        for(int i=0; i<ghosts.Length; i++)
+        for (int i = 0; i < ghosts.Length; i++)
         {
-            ghosts[i].gameObject.SetActive(true);
+            ghosts[i].ResetState();
         }
-        pacman.gameObject.SetActive(true);
+
+        pacman.ResetState();
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         foreach(Transform pallet in pallets)
         {

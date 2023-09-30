@@ -405,6 +405,10 @@ GameObject:
   - component: {fileID: 143789624330479964}
   - component: {fileID: 3018703782931456794}
   - component: {fileID: 3492363266388689592}
+  - component: {fileID: 7735313499817356707}
+  - component: {fileID: 403663052097189039}
+  - component: {fileID: 2360628236650031555}
+  - component: {fileID: 316780306214924656}
   m_Layer: 7
   m_Name: Ghost
   m_TagString: Untagged
@@ -505,6 +509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8869f53428e1ccd4bb2a32c7087f4f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialBehavior: {fileID: 0}
+  target: {fileID: 0}
   points: 0
 --- !u!114 &3492363266388689592
 MonoBehaviour:
@@ -524,3 +530,61 @@ MonoBehaviour:
   wallsLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &7735313499817356707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390387914966797990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1a6973ff633bb429b0339ff5218430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 7
+--- !u!114 &403663052097189039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390387914966797990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f37306b2b40e04bb678fddb79fce0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 20
+--- !u!114 &2360628236650031555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390387914966797990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fa8f2a601dfb844a503b8a44d77a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  body: {fileID: 7335191246723969052}
+  eyes: {fileID: 1863822396702374979}
+  blue: {fileID: 106033210897428436}
+  white: {fileID: 3608879894853329910}
+--- !u!114 &316780306214924656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390387914966797990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8554c410f9b2a204fabb558f79530e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  inside: {fileID: 0}
+  outside: {fileID: 0}
